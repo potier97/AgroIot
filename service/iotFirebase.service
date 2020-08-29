@@ -1,0 +1,15 @@
+[Unit]
+Description=Mi Service cron Iot data for send data to Firebase
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /home/pi/iot/service/main.py
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+

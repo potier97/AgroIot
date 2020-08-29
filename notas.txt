@@ -1,0 +1,48 @@
+//crear base de dados desde terminal
+sqlite3 sensordata.db
+
+//Iniciar a crear tablas dentro de db sensordata
+BEGIN;
+
+//crear tablas
+CREATE TABLE greenhouseData (id INTEGER PRIMARY KEY AUTOINCREMENT, currentdate DATE, airTempSensationOne REAL, airHumSensationOne REAL, airTempOne REAL, airHumOne REAL, earthTempOne REAL, earthHumOne REAL, lightOne INTEGER, airTempSensationTwo REAL, airHumSensationTwo REAL, airTempTwo REAL, airHumTwo REAL, earthTempTwo REAL, earthHumTwo REAL, lightTwo INTEGER, airTempSensationThree REAL, airHumSensationThree REAL, airTempThree REAL, airHumThree REAL, earthTempThree REAL, earthHumThree REAL, lightThree INTEGER, airTempSensationFour REAL, airHumSensationFour REAL, airTempFour REAL, airHumFour REAL, earthTempFour REAL, earthHumFour REAL, lightFour INTEGER, airTempSensationFive REAL, airHumSensationFive REAL, airTempFive REAL, airHumFive REAL, earthTempFive REAL, earthHumFive REAL, lightFive INTEGER);
+
+
+//EJECUTAR TODOS LOS DATOS
+COMMIT;
+
+
+
+//VER LAS TABLAS CREADAS
+.tables
+
+
+//ver el esquema de la tablas
+.fullschema 
+
+
+//INSERT
+sqlite> BEGIN; 
+sqlite> INSERT INTO dhtreadings (temperatura , humedad , fecha actual, hora actual , dispositivo)  valores (22.4, 48, fecha ('ahora'), hora ('ahora'), "manual"); 
+sqlite> COMMIT;
+
+
+MAKEFILE SE DEBE MODIFICAR PARA AGREGAR SQLITE
+${PROGRAMS}: ${SOURCES}
+        g++ ${CCFLAGS} -Wall -I../ $@.cpp -lrf24-bcm -lrf24network -lsqlite3  -o $@
+
+
+
+//Modificar tabla desde el cli de SQLITE
+
+sqlite> SELECT * FROM greenhouseData;
+1|2020-08-09 08:26:05|1.95|1.06|1.0|13.1|19.3|8.9|12.6|1.95|1.06|1.0|13.1|19.3|8.9|12.6|1.95|1.06|1.0|13.1|19.3|8.9|12.6|1.95|1.06|1.0|13.1|19.3|8.9|12.6|1.95|1.06|1.0|13.1|19.3|8.9|12.6
+2|2020-08-09 08:26:09|1.67|1.68|17.3|3.7|3.7|16.2|2.7|1.67|1.68|17.3|3.7|3.7|16.2|2.7|1.67|1.68|17.3|3.7|3.7|16.2|2.7|1.67|1.68|17.3|3.7|3.7|16.2|2.7|1.67|1.68|17.3|3.7|3.7|16.2|2.7
+
+//BORRA TODOS LOS REGUISTROS DE LA TABLA
+sqlite> DELETE FROM greenhouseData;
+//REINICIA EL CONTADOR DE LA TABLA
+sqlite> UPDATE SQLITE_SEQUENCE SET SEQ=0 WHERE NAME='greenhouseData';
+//SALE DEL CLI
+sqlite> .quit
+

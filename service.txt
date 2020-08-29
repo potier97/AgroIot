@@ -1,0 +1,40 @@
+Informacion de 
+http://chips.mecatronium.com/tutorial-como-correr-un-script-de-python-al-iniciar-el-raspberry-pi/
+
+
+
+Vamos a ver cómo hacer que cada vez que se inicie tu Raspberry Pi se corra un script Python (o cualquier otro comando en la terminal de hecho).
+
+
+Para lograr nuestro objetivo vamos a utilizar el comando de linux systemd, o “System and Service Manager”.
+
+Vamos a suponer que tienes un script Python que deseas correr con el nombre “robot.py”. 
+Vamos a crear un archivo de servicio que tendrá las instrucciones de lo que queremos correr.
+
+Para esto abrimos el editor y vamos a crear un archivo en lib/systemd/system/robot.service
+
+Y pegamos el siguiente código dentro del archivo
+
+
+
+[Unit]
+Description=Mi Servicio para Robot
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 /home/pi/robot.py
+
+[Install]
+WantedBy=multi-user.target
+
+
+El parámetro ExecStart indica los comandos que queremos correr, en este caso es nuestro script
+de Python, pero en realidad podemos agregar cualquier comando que deseemos (como si lo
+corriéramos en la terminal). El Type como “idle” se asegura que se corra el comando una vez que el
+Raspberry haya terminado de cargar todo después de la secuencia de inicio.
+
+Nuestro archivo debe tener el permiso como 644 para poder ejecutar:
+
+
+sudo chmod 644 /lib/systemd/system/robot.service

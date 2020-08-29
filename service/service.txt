@@ -1,0 +1,105 @@
+Servicio creado utilizando systemd
+
+Para informacion
+https://www.raspberrypi.org/documentation/linux/usage/systemd.md
+
+
+
+
+Para que se ejecute un comando o programa cuando se inicie el Pi, puede
+agregarlo como un servicio. Una vez hecho esto, puede iniciar / detener habilitar /
+deshabilitar desde el indicador de linux.
+
+
+//Escript ubicado en /home/pi/iot/service/main.py
+
+
+
+-----------------------------------------------------------
+AÑADIR PERMISOS A CADA SCRIPT CON
+    sudo chmod 777 nameScript.py
+    sudo chmod +x nameScript.py
+
+
+
+---------------------------------------------------
+
+
+
+
+[Unit]
+Description=Mi Service cron Iot data for send data to Firebase
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/python3 -u /home/pi/iot/service/main.py
+
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+
+copiar el archivo en /etc/systemd/system
+sudo cp myscript.service /etc/systemd/system/myscript.service
+
+INICIAR EL SERVICIO
+sudo systemctl start myscript.service
+
+PARAR EL SERVICIO
+sudo systemctl stop myscript.service
+
+INICIAR AUTOMATICAMENTE CUANDO SE PRENDA LA RPI
+sudo systemctl enable myscript.service
+
+systemctl --> SE PUEDE USAR PARA DETENER Y REINICIARLO
+
+
+
+
+
+---------------------------IMPORTANTE--------------------------------------------------
+---------------------------IMPORTANTE--------------------------------------------------
+---------------------------IMPORTANTE--------------------------------------------------
+---------------------------IMPORTANTE--------------------------------------------------
+1 - SE COPIA EL DODUMENTO DEL SERVICIO EN /ETC/SYSTEMD/SYSTEM/IOTFIREBASE.SERVICE
+2 - SE COLOCAN LOS PERMISOS PARA EJECUTAR EL SERVICIO 
+3 - SE PUEDE INICIAR EL SERVICIO CON --- sudo systemctl start iotFirebase.service
+4 - SE PUEDE DETENER EL SERVICIO CON --- sudo systemctl stop iotFirebase.service
+5 - INICIAR EL SERVICIO AUTOMATICAMENTE CUANDO SE PRENDE LA MAQUINA
+
+
+sudo cp iotFirebase.service /etc/systemd/system/iotFirebase.service
+
+Sudo chmod 644 /etc/systemd/system/iotFirebase.service
+
+sudo systemctl start iotFirebase.service
+
+sudo systemctl stop iotFirebase.service
+
+sudo systemctl enable iotFirebase.service
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+MQTT
+pip install paho-mqtt
+
+
+
