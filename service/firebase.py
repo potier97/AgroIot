@@ -2,7 +2,10 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-from dataStructure import struct
+import dataStructure
+import files
+import datetime
+import calculation
 
 
 def validateAccount():
@@ -13,29 +16,43 @@ def validateAccount():
 def insertData(data):
     collectionName="NODES-WEATHER"
     db = firestore.client()
-    newDoc = db.collection(collectionName).document()
-    newDoc.set(data)
+    newDoc = db.collection(collectionName)
+    newDoc.document().set(data)
+    #return status
 
+def dicNodes(stateTime, nodeOne, nodeTwo, nodeThree, nodeFour, nodeFive, aditional=None):
+
+    nodes = {}
+    nodes['node01'] = nodeOne
+    nodes['node02'] = nodeTwo
+    nodes['node03'] = nodeThree
+    nodes['node04'] = nodeFour
+    nodes['node05'] = nodeFive
+    nodes['node00'] = calculation.averageVar(nodes)
+
+    dataNodeStructure = dataStructure.struct(stateTime ,
+            nodes['node00'][0], nodes['node00'][1], nodes['node00'][2], nodes['node00'][3], nodes['node00'][4], nodes['node00'][5], nodes['node00'][6],
+            nodes['node01'][0], nodes['node01'][1], nodes['node01'][2], nodes['node01'][3], nodes['node01'][4], nodes['node01'][5], nodes['node01'][6],
+            nodes['node02'][0], nodes['node02'][1], nodes['node02'][2], nodes['node02'][3], nodes['node02'][4], nodes['node02'][5], nodes['node02'][6],
+            nodes['node03'][0], nodes['node03'][1], nodes['node03'][2], nodes['node03'][3], nodes['node03'][4], nodes['node03'][5], nodes['node03'][6],
+            nodes['node04'][0], nodes['node04'][1], nodes['node04'][2], nodes['node04'][3], nodes['node04'][4], nodes['node04'][5], nodes['node04'][6],
+            nodes['node05'][0], nodes['node05'][1], nodes['node05'][2], nodes['node05'][3], nodes['node05'][4], nodes['node05'][5], nodes['node05'][6])
+
+    return dataNodeStructure
 
 
 def main():
-    import random
-    import json
-    #se crea un diccionario
-    z = struct("19/08/2020 23:11:01", round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
-        round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2))
-    y = json.dumps(z, indent=4)
-    print(y)
-    validateAccount()
-    insertData(z)
+    currentDatetime = files.currentTime()
 
+    #Diccionario - firebase
+    nodes = dicNodes(currentDatetime, calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList())
+    print(nodes)
+    validateAccount()
+    insertData(nodes)
+    #Add to logs.txt
+    newMessage = 'New data added on:'
+    nowConvert = files.dateTimeConvert(currentDatetime)
+    files.manageFiles(message=newMessage ,time=nowConvert, status=True)
 
 
 

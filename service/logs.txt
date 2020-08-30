@@ -1,8 +1,4 @@
-New message at 
-New message at 9 am 
-New message at 9 am 
-New message at 9 am 
-New message 19/08/2020 23:11:01 
-New message 19/08/2020 23:11:07 
-New data added on: 19/08/2020 23:11:34 
-New data added on: 21/08/2020 02:18:51 
+New data added on: 29/08/2020 22:35:13  --  Status: No Data Send 
+New data added on: 30/08/2020 03:03:53  --  Status: Data Send 
+New data added on: 30/08/2020 03:28:10  --  Status: Data Send 
+New data added on: 30/08/2020 03:32:10  --  Status: Data Send 

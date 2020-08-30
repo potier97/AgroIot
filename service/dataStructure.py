@@ -2,15 +2,16 @@
 import json
 
 
+def struct( date,
+            airHum0, airHumSensation0, airTemp0, airTempSensation0, earthHum0, earthTemp0, light0,
+            airHum1, airHumSensation1, airTemp1, airTempSensation1, earthHum1, earthTemp1, light1,
+            airHum2, airHumSensation2, airTemp2, airTempSensation2, earthHum2, earthTemp2, light2,
+            airHum3, airHumSensation3, airTemp3, airTempSensation3, earthHum3, earthTemp3, light3,
+            airHum4, airHumSensation4, airTemp4, airTempSensation4, earthHum4, earthTemp4, light4,
+            airHum5, airHumSensation5, airTemp5, airTempSensation5, earthHum5, earthTemp5, light5):
 
-def struct( date, airHum0, airHumSensation0, airTemp0, airTempSensation0, earthHum0, earthTemp0, light0,
-             airHum1, airHumSensation1, airTemp1, airTempSensation1, earthHum1, earthTemp1, light1,
-             airHum2, airHumSensation2, airTemp2, airTempSensation2, earthHum2, earthTemp2, light2,
-             airHum3, airHumSensation3, airTemp3, airTempSensation3, earthHum3, earthTemp3, light3,
-             airHum4, airHumSensation4, airTemp4, airTempSensation4, earthHum4, earthTemp4, light4,
-             airHum5, airHumSensation5, airTemp5, airTempSensation5, earthHum5, earthTemp5, light5):
     data={
-     "currentDate": "19/08/2020 23:11:01",
+      "currentDate": date,
       "nodeId0": {
         "airHum":  airHum0,
         "airHumSensation":  airHumSensation0,
@@ -20,7 +21,7 @@ def struct( date, airHum0, airHumSensation0, airTemp0, airTempSensation0, earthH
         "earthTemp":  earthTemp0,
         "light":  light0,
       },
-     "nodeId1": {
+      "nodeId1": {
         "airHum":  airHum1,
         "airHumSensation":  airHumSensation1,
         "airTemp":  airTemp1,
@@ -29,7 +30,7 @@ def struct( date, airHum0, airHumSensation0, airTemp0, airTempSensation0, earthH
         "earthTemp":  earthTemp1,
         "light":  light1,
       },
-     "nodeId2": {
+      "nodeId2": {
         "airHum":  airHum2,
         "airHumSensation":  airHumSensation2,
         "airTemp":  airTemp2,
@@ -38,7 +39,7 @@ def struct( date, airHum0, airHumSensation0, airTemp0, airTempSensation0, earthH
         "earthTemp":  earthTemp2,
         "light":  light2,
       },
-     "nodeId3": {
+      "nodeId3": {
         "airHum":  airHum3,
         "airHumSensation":  airHumSensation3,
         "airTemp":  airTemp3,
@@ -47,7 +48,7 @@ def struct( date, airHum0, airHumSensation0, airTemp0, airTempSensation0, earthH
         "earthTemp":  earthTemp3,
         "light":  light3,
       },
-     "nodeId4": {
+      "nodeId4": {
         "airHum":  airHum4,
         "airHumSensation":  airHumSensation4,
         "airTemp":  airTemp4,
@@ -56,7 +57,7 @@ def struct( date, airHum0, airHumSensation0, airTemp0, airTempSensation0, earthH
         "earthTemp":  earthTemp4,
         "light":  light4,
       },
-     "nodeId5": {
+      "nodeId5": {
         "airHum":  airHum5,
         "airHumSensation":  airHumSensation5,
         "airTemp":  airTemp5,
@@ -65,7 +66,7 @@ def struct( date, airHum0, airHumSensation0, airTemp0, airTempSensation0, earthH
         "earthTemp":  earthTemp5,
         "light":  light5,
       },
-    "aditional":{
+      "aditional":{
 
       }
     }

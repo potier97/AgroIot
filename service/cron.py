@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 import os
 import schedule
 import time
@@ -7,20 +6,20 @@ from blink import blink
 
 
 
+def SimpleJob():
+
+    #ledPin = 11
+    newBlink = blink()
+
+    for i in range(30):
+        newBlink.ledOn(1)
+        newBlink.ledOff(1)
+        print("30 Times of {}".format(i))
+
+
 
 def main():
     try:
-        #ledPin = 11
-        newBlink = blink()
-
-        def simpleJob():
-            simpleList = [1,2,3,4,5,6,7,8,9,10]
-            for i in simpleList:
-                newBlink.ledOn(1)
-                newBlink.ledOff(1)
-                print("{} Times of {}".format(len(simpleList), i))
-
-        #schedule.every().minutes.do(simpleJob)
         schedule.every().day.at("00:00").do(simpleJob)
         schedule.every().day.at("01:00").do(simpleJob)
         schedule.every().day.at("02:00").do(simpleJob)

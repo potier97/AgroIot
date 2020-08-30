@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import time
-import datetime
+from datetime import datetime
+import pytz
 
 #"r" - Read - Default value. Opens a file for reading, error if the file does not exist
 #"a" - Append - Opens a file for appending, creates the file if it does not exist
@@ -10,27 +10,39 @@ import datetime
 #"b" - Binary - Binary mode (e.g. images)
 
 
-
-
-
-def manageFiles(txt="/home/pi/iot/service/logs.txt", message='New message', time='algo'):
-    with open(txt, 'a') as file:
-        file.write('{} {} \n'.format(message, time))
+def manageFiles(logsFile="logs.txt", message='New data added on:', time='No time', status=False):
+    if(status):
+        statusData = 'Data Send'
+    else:
+        statusData = 'No Data Send'
+    with open(logsFile, 'a') as file:
+        file.write("{} {}  --  Status: {} \n" .format(message, time, statusData))
+        #print('ok')
 
 
 def currentTime():
-    getDate = datetime.datetime.now();
-    #Format
-    # dd/mm/YY H:M:S
-    #strftime()The method creates a formatted string from a given datetime
-    return getDate.strftime("%d/%m/%Y %H:%M:%S")
+    zone='America/Bogota'
+    getDate = datetime.now(pytz.timezone(zone));
+    #print(getDate)
+    #print(type(getDate))
+    #Format -> d/m/Y H:M:S
+    return getDate
 
+def dateTimeConvert(date):
+    dateTimeConvert = datetime.strftime(date ,'%d/%m/%Y %H:%M:%S')
+    #dateTimeConvert = time.timestamp(dateTimeConvert)
+    #print(type(dateTimeConvert))
+    #print(dateTimeConvert)
+    return dateTimeConvert
 
 def main():
     now = currentTime()
+    #print(now)
     newMessage = 'New data added on:'
-    manageFiles(message=newMessage,time=now)
-
+    nowConvert = dateTimeConvert(now)
+    #print(nowConvert)
+    #print(type(nowConvert))
+    manageFiles(message=newMessage ,time=nowConvert)
 
 if __name__ == "__main__":
     main()
