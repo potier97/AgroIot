@@ -39,8 +39,8 @@ def simpleJob():
 
 
 def main():
-    schedule.every().hour.at(":01").do(simpleJob)
-    #schedule.every(2).minutes.do(simpleJob)
+    #schedule.every().hour.at(":27").do(simpleJob)
+    schedule.every(2).minutes.do(simpleJob)
     while True:
         schedule.run_pending()
         time.sleep(1)

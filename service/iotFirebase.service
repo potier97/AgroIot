@@ -1,5 +1,5 @@
 [Unit]
-Description=Mi Service cron Iot data for send data to Firebase
+Description=Service cron Iot data for send data to Firebase
 After=multi-user.target
 
 [Service]

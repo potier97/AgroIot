@@ -11,10 +11,10 @@ firebase.validateAccount()
 #ledPin = 11
 newBlink = blink()
 
-
 def simpleJob():
 
     try:
+
         for i in range(10):
             newBlink.ledOn(0.5)
             newBlink.ledOff(0.5)
@@ -31,21 +31,20 @@ def simpleJob():
         files.manageFiles(message=newMessage ,time=nowConvert, status=True)
 
         for i in range(10):
-            newBlink.ledOn(0.5)
-            newBlink.ledOff(0.5)
+            newBlink.ledOn(2)
+            newBlink.ledOff(2)
+
     except:
         newBlink.ledOff()
 
 
 
 def main():
-    schedule.every().hour.at(":01").do(simpleJob)
-    #schedule.every(2).minutes.do(simpleJob)
+    #schedule.every().hour.at(":27").do(simpleJob)
+    schedule.every(2).minutes.do(simpleJob)
     while True:
         schedule.run_pending()
         time.sleep(1)
-
-
 
 
 if __name__ == "__main__":

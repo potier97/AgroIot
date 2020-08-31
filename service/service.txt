@@ -103,3 +103,7 @@ pip install paho-mqtt
 
 
 
+PARA GESTOR DE PAQUETES DEL PROYECTO
+pip install -r requirements.txt
+
+GESTOR DE PAQUETES - PIPENV

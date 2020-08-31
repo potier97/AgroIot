@@ -9,7 +9,7 @@ import calculation
 
 
 def validateAccount():
-    serviceAccount="telemetryiot-firebase-adminsdk-ip9yj-d5e016348c.json"
+    serviceAccount="/home/pi/iot/service/telemetryiot-firebase-adminsdk-ip9yj-d5e016348c.json"
     cred = credentials.Certificate(serviceAccount)
     firebase_admin.initialize_app(cred)
 

@@ -11,13 +11,14 @@ import pytz
 
 
 def manageFiles(logsFile="logs.txt", message='New data added on:', time='No time', status=False):
-    if(status):
+    if status:
         statusData = 'Data Send'
     else:
         statusData = 'No Data Send'
     with open(logsFile, 'a') as file:
+        if '00:01' in time:
+            file.write("New data day  --  \n")
         file.write("{} {}  --  Status: {} \n" .format(message, time, statusData))
-        #print('ok')
 
 
 def currentTime():
