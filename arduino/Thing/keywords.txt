@@ -1,0 +1,16 @@
+Thing	KEYWORD1
+ledInd	KEYWORD2
+ledOff	KEYWORD2
+ledOn	KEYWORD2
+getAirTemp	KEYWORD2
+getAirHum	KEYWORD2
+getAirTempIndex	KEYWORD2
+getEarthTemp	KEYWORD2
+getEarthHum	KEYWORD2
+getLight	KEYWORD2
+calibrateLight	KEYWORD2
+getPercent	KEYWORD2
+getAdc	KEYWORD2
+gotoSleep	KEYWORD2
+sendData	KEYWORD2
+payloadNode	KEYWORD2
