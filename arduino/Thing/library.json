@@ -1,0 +1,14 @@
+{
+  "name": "Thing",
+  "keywords": "Thing, Iot, light, temeprature, humidity, sensors, Wireless, RF, nrf24l01, adc1115, gateway, Arduino, ESP8266, ESP32",
+  "description": "About Iot sensor network to capture and send data on environmental variables (temperature (Air and Earth), humidity (Air and Earth), light, thermal sensation) to the cloud through a Gateway, communicating through RF24Network. Arduino, ESP8266 & ESP32 compatible.",
+  "repository": {
+    "project": "AgroIot"
+    "type": "git",
+    "url": "https://github.com/potier97/AgroIot.git",
+    "url-arduino": "https://github.com/potier97/AgroIot/tree/master/arduino"
+  },
+  "frameworks": "arduino",
+  "platforms": ["espressif8266", "espressif32"],
+  "version": "1.0.1"
+}
