@@ -39,3 +39,5 @@ New data added on: 31/08/2020 01:03:52  --  Status: Data Send
 New data added on: 31/08/2020 01:21:08  --  Status: Data Send 
 New data added on: 31/08/2020 01:23:29  --  Status: Data Send 
 New data added on: 31/08/2020 01:38:05  --  Status: Data Send 
+New data added on: 01/09/2020 01:02:48  --  Status: No Data Send 
+New data added on: 01/09/2020 01:06:12  --  Status: No Data Send 

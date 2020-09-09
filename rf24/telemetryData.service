@@ -1,0 +1,15 @@
+[Unit]
+Description=Service cron to get data of Nodes in greenhouse and save in csv and sqliteDB
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/home/pi/iot/rf24/telemetryNetwork
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
+

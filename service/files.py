@@ -2,22 +2,14 @@
 from datetime import datetime
 import pytz
 
-#"r" - Read - Default value. Opens a file for reading, error if the file does not exist
-#"a" - Append - Opens a file for appending, creates the file if it does not exist
-#"w" - Write - Opens a file for writing, creates the file if it does not exist
-#"x" - Create - Creates the specified file, returns an error if the file exist
-#"t" - Text - Default value. Text mode
-#"b" - Binary - Binary mode (e.g. images)
-
-
 def manageFiles(logsFile="logs.txt", message='New data added on:', time='No time', status=False):
     if status:
         statusData = 'Data Send'
     else:
         statusData = 'No Data Send'
     with open(logsFile, 'a') as file:
-        if '00:01' in time:
-            file.write("New data day  --  \n")
+        #if '00:01' in time:
+        #    file.write("New data day  --  \n")
         file.write("{} {}  --  Status: {} \n" .format(message, time, statusData))
 
 
@@ -44,6 +36,12 @@ def main():
     #print(nowConvert)
     #print(type(nowConvert))
     manageFiles(message=newMessage ,time=nowConvert)
+
+    #nowConvert = files.dateTimeConvert(currentDatetime)
+    #files.manageFiles(message=newMessage ,time=nowConvert, status=True)
+
+
+
 
 if __name__ == "__main__":
     main()

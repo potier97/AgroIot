@@ -1,4 +1,0 @@
-firebase-admin
-grpcio==1.13.0rc3
-google-cloud-firestore==0.29.0
-google-cloud-storage==1.10.0

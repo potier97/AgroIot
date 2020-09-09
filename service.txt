@@ -13,6 +13,11 @@ Vamos a crear un archivo de servicio que tendrá las instrucciones de lo que que
 
 Para esto abrimos el editor y vamos a crear un archivo en lib/systemd/system/robot.service
 
+sudo cp myscript.service /etc/systemd/system/myscript.service
+
+
+
+
 Y pegamos el siguiente código dentro del archivo
 
 
