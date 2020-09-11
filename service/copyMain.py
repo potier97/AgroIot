@@ -22,7 +22,7 @@ def simpleJob():
         #Get dateTime Now
         currentDatetime = files.currentTime()
         #Diccionario - firebase
-        nodes = firebase.dicNodes(currentDatetime, calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList())
+        nodes = firebase.dicNodes(currentDatetime, currentDatetime, calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList(), calculation.genereRandomList())
         #firebase.validateAccount()
         firebase.insertData(nodes)
         #Add to logs.txt

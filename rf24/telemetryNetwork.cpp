@@ -95,7 +95,8 @@ string getDate(){
         string space = " ";
         string slash = "/";
         string points = ":";
-        string date = to_string(day) + slash + to_string(month) + slash + to_string(year) + space + to_string(hour) + points + to_string(min) + points + to_string(second);
+        string pointZero = ":";
+        string date = to_string(day) + slash + to_string(month) + slash + to_string(year) + space + to_string(hour) + points + to_string(min) + pointZero + to_string(second);
         return date;
 }
 
@@ -150,9 +151,8 @@ void writeCSV(){
         << earthTempFive << ", "
         << earthHumFive << ", "
         << lightFive << ", "
-        << lightFive << ", "
-        << false  << ", "
-        << now  << "\n";
+        << "false"  << ", "
+        << now << "\n";
 
         fout.close();
 }
@@ -255,7 +255,7 @@ int main(int argc, char** argv)
       			{
 		         case 201:
 		                if(!newFromOne){
-					 printf("Received data from Node # %u ...",payload.nodeId);
+					printf("Received data from Node # %u ...",payload.nodeId);
                                     	printf(" data: ATS %0.2f data: AHS %0.2f  data: AT %0.2f  data: AH %0.2f   ",payload.airTempSensation,payload.airHumSensation,payload.airTemp,payload.airHum);
                                     	printf(" data: ET %0.2f data: EH %0.2f  data: L %0.2f  \n",payload.earthTemp,payload.earthHum,payload.light);
 
@@ -266,7 +266,6 @@ int main(int argc, char** argv)
         				earthTempOne = payload.earthTemp;
         				earthHumOne = payload.earthHum;
         				lightOne = payload.light;
-
 					newFromOne = true;
 				}
             			break;
@@ -283,7 +282,6 @@ int main(int argc, char** argv)
                                         earthTempTwo = payload.earthTemp;
                                         earthHumTwo = payload.earthHum;
                                         lightTwo = payload.light;
-
 					newFromTwo = true;
                                 }
 				break;
@@ -317,7 +315,6 @@ int main(int argc, char** argv)
                                         earthTempFour = payload.earthTemp;
                                         earthHumFour = payload.earthHum;
                                         lightFour = payload.light;
-
                                         newFromFour = true;
                                 }
                                 break;
@@ -334,13 +331,12 @@ int main(int argc, char** argv)
                                         earthTempFive = payload.earthTemp;
                                         earthHumFive = payload.earthHum;
                                         lightFive = payload.light;
-
 					newFromFive = true;
                                 }
                                 break;
 			default:
 				//printf("No data from Network Nodes \n");
-				delay(250);
+				delay(100);
 		                break;
 		      	}
   		 }
@@ -350,18 +346,18 @@ int main(int argc, char** argv)
 		 bool statusData = validationData(newFromOne, newFromTwo, newFromThree, newFromFour, newFromFive);
 
 		 if(statusData){
-		      	printf("Datos validados \n");
+                        string nowValidate = getDate();
+                        printf("Datos validados en:   %s \n",nowValidate.c_str());
                        	newFromOne   = false;
 		       	newFromTwo   = false;
                        	newFromThree = false;
                        	newFromFour  = false;
                        	newFromFive  = false;
 
-			//writeCSV();
+			writeCSV();
 			//insertDB();
-			//printf("Datos Insertados en csv \n");
 			delay(2000);
-                        printf("DATOS VALIDADOS \n \n \n \n \n \n");
+                        //printf("DATOS VALIDADOS \n \n \n \n \n \n");
                  }
                  delay(100);
 	}

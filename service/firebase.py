@@ -30,7 +30,7 @@ def dicNodes(stateTime, nodeOne, nodeTwo, nodeThree, nodeFour, nodeFive, adition
     nodes['node05'] = nodeFive
     nodes['node00'] = calculation.averageVar(nodes)
 
-    dataNodeStructure = dataStructure.struct(stateTime ,
+    dataNodeStructure = dataStructure.struct(stateTime , stateTime,
             nodes['node00'][0], nodes['node00'][1], nodes['node00'][2], nodes['node00'][3], nodes['node00'][4], nodes['node00'][5], nodes['node00'][6],
             nodes['node01'][0], nodes['node01'][1], nodes['node01'][2], nodes['node01'][3], nodes['node01'][4], nodes['node01'][5], nodes['node01'][6],
             nodes['node02'][0], nodes['node02'][1], nodes['node02'][2], nodes['node02'][3], nodes['node02'][4], nodes['node02'][5], nodes['node02'][6],

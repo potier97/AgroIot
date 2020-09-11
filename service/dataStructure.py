@@ -2,7 +2,7 @@
 import json
 
 
-def struct( date,
+def struct( date, getDate,
             airHum0, airHumSensation0, airTemp0, airTempSensation0, earthHum0, earthTemp0, light0,
             airHum1, airHumSensation1, airTemp1, airTempSensation1, earthHum1, earthTemp1, light1,
             airHum2, airHumSensation2, airTemp2, airTempSensation2, earthHum2, earthTemp2, light2,
@@ -11,6 +11,7 @@ def struct( date,
             airHum5, airHumSensation5, airTemp5, airTempSensation5, earthHum5, earthTemp5, light5):
 
     data={
+      "getDateTime" : getDate,
       "currentDate": date,
       "nodeId0": {
         "airHum":  airHum0,
@@ -77,7 +78,7 @@ def struct( date,
 
 def main():
     import random
-    z = struct("19/08/2020 23:11:01", round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
+    z = struct("19/08/2020 23:11:01", "19/08/2020 23:11:01", round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
               round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
               round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
               round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
@@ -88,7 +89,6 @@ def main():
               round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2))
     y = json.dumps(z, indent=4)
     print(y)
-
 
 
 

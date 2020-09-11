@@ -41,10 +41,11 @@ def simpleJob():
 
 def main():
     #schedule.every().hour.at(":27").do(simpleJob)
-    schedule.every(2).minutes.do(simpleJob)
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    #schedule.every(2).minutes.do(simpleJob)
+    simpleJob()
+    #while True:
+    #    schedule.run_pending()
+    #    time.sleep(1)
 
 
 if __name__ == "__main__":
