@@ -28,6 +28,12 @@ def dateTimeConvert(date):
     #print(dateTimeConvert)
     return dateTimeConvert
 
+def strToTime(date):
+    zone='America/Bogota'
+    dateTimeString = datetime.strptime(date, '%d/%m/%Y %H:%M:%S')
+    dateTimeString = dateTimeString.astimezone(pytz.timezone(zone))
+    return dateTimeString; 
+
 def main():
     now = currentTime()
     #print(now)

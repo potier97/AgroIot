@@ -6,6 +6,7 @@ import time
 import files
 import firebase
 import calculation
+import pandas as pd
 
 firebase.validateAccount()
 #ledPin = 11

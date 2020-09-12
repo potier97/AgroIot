@@ -11,8 +11,8 @@ def struct( date, getDate,
             airHum5, airHumSensation5, airTemp5, airTempSensation5, earthHum5, earthTemp5, light5):
 
     data={
-      "getDateTime" : getDate,
-      "currentDate": date,
+      "getDateTimeTelemetry" : getDate, #dateTelemetry
+      "currentDate": date,  #dateTransfer
       "nodeId0": {
         "airHum":  airHum0,
         "airHumSensation":  airHumSensation0,
