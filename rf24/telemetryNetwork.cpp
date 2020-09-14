@@ -95,8 +95,7 @@ string getDate(){
         string space = " ";
         string slash = "/";
         string points = ":";
-        string pointZero = ":";
-        string date = to_string(day) + slash + to_string(month) + slash + to_string(year) + space + to_string(hour) + points + to_string(min) + pointZero + to_string(second);
+        string date = to_string(day) + slash + to_string(month) + slash + to_string(year) + space + to_string(hour) + points + to_string(min) + points + to_string(second);
         return date;
 }
 
@@ -104,7 +103,7 @@ void writeCSV(){
 	// file pointer
         fstream fout;
         // opens an existing csv file or creates a new file.
-        fout.open("weatherData.csv", ios::out | ios::app);
+        fout.open("/home/pi/iot/rf24/weatherData.csv", ios::out | ios::app);
 
 	//Get Date
 	string now = getDate();
@@ -169,7 +168,7 @@ void insertDB(){
     	sqlite3_stmt *stmt;
 	//Validation Conecction
         int exit = 0;
-        exit = sqlite3_open("sensordata.db", &DB);
+        exit = sqlite3_open("/home/pi/iot/rf24/sensordata.db", &DB);
 
         if (exit) {
                 printf("No Abrio");
@@ -232,13 +231,10 @@ bool validationData(bool one, bool two, bool three, bool four, bool five) {
 
 int main(int argc, char** argv)
 {
-	// Refer to RF24.h or nRF24L01 DS for settings
 	radio.begin();
-
 	delay(10);
 	network.begin(/*channel*/ 90, /*node address*/ this_node);
 	radio.printDetails();
-
 
 	while(1)
 	{
@@ -346,18 +342,16 @@ int main(int argc, char** argv)
 		 bool statusData = validationData(newFromOne, newFromTwo, newFromThree, newFromFour, newFromFive);
 
 		 if(statusData){
-                        string nowValidate = getDate();
-                        printf("Datos validados en:   %s \n",nowValidate.c_str());
+                        //string nowValidate = getDate();
+                        //printf("Datos validados en:   %s \n",nowValidate.c_str());
                        	newFromOne   = false;
 		       	newFromTwo   = false;
                        	newFromThree = false;
                        	newFromFour  = false;
                        	newFromFive  = false;
-
 			writeCSV();
 			//insertDB();
 			delay(2000);
-                        //printf("DATOS VALIDADOS \n \n \n \n \n \n");
                  }
                  delay(100);
 	}

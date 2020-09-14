@@ -11,13 +11,18 @@ import os
 import time
 import files
 import pandas as pd
-
+pd.options.display.float_format = '{:.2f}'.format
 
 
 def main():
-    file = "/home/pi/iot/rf24/weatherData.csv"
+    file = "/home/pi/iot/rf24/weatherDatas.csv"
     firebase.validateAccount()
     df = pd.read_csv(file)
+
+    #Capturar la hora actual - type -> datetime.datetime
+    currentDatetime = files.currentTime()
+    #Convertir la hora actual - type -> str
+    currentDatetimeStr = files.dateTimeConvert(currentDatetime)
 
     for id, row in df.iterrows():
         if row.statusCloud == False:
@@ -28,24 +33,26 @@ def main():
             nodeFive=[row.airHumFive, row.airHumSensationFive, row.airTempFive, row.airTempSensationFive, row.earthHumFive, row.earthTempFive, row.lightFive]
 
             print(id)
+            #Convertir de str de la fila csv a tipo datetime.datetime
             telemetryTime = files.strToTime(row.dateCaptured)
-            currentDatetime = files.currentTime()
+
             #Diccionario - firebase
-            nodes = firebase.dicNodes(currentDatetime, telemetryTime, nodeOne, nodeTwo, nodeThree, nodeFour, nodeFive)
-            firebase.insertData(nodes)
-            #Add to logs.txt
-            newMessage = 'New data added on:'
-            nowConvert = files.dateTimeConvert(currentDatetime)
-            files.manageFiles(message=newMessage ,time=nowConvert, status=True)
+            #currentDatetime --> hora de envio a la nube
+            #telemetryTime --> hora de datos capturados
+            #nodes = firebase.dicNodes(currentDatetime, telemetryTime, nodeOne, nodeTwo, nodeThree, nodeFour, nodeFive)
+            #firebase.insertData(nodes)
 
-            df.at[id,'statusCloud']= True
-            df.at[id,'timeSent']= row.dateCaptured
+            telemetryTimeStr = files.dateTimeConvert(telemetryTime)
+            df.at[id,'dateCaptured'] = telemetryTimeStr
+            df.at[id,'statusCloud'] = True
+            df.at[id,'timeSent'] = currentDatetimeStr
 
-    df.to_csv(file, index=False)
+    #Add to logs.txt
+    newMessage = 'New data added on:'
+    nowConvert = files.dateTimeConvert(files.currentTime())
+    files.manageFiles(message=newMessage ,time=nowConvert, status=True)
 
-
-
-
+    df.to_csv(file, index=False, float_format='%.2f')
 
 if __name__ == "__main__":
     main()

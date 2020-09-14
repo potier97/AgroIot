@@ -14,25 +14,30 @@ def manageFiles(logsFile="logs.txt", message='New data added on:', time='No time
 
 
 def currentTime():
+    """
+    Captura la fecha actual - genera un dato de tipo datetime.datetime
+    """
     zone='America/Bogota'
     getDate = datetime.now(pytz.timezone(zone));
-    #print(getDate)
-    #print(type(getDate))
     #Format -> d/m/Y H:M:S
     return getDate
 
 def dateTimeConvert(date):
+    """
+    Convertir de datetime.datetime  de la fila csv a tipo str
+    """
     dateTimeConvert = datetime.strftime(date ,'%d/%m/%Y %H:%M:%S')
-    #dateTimeConvert = time.timestamp(dateTimeConvert)
-    #print(type(dateTimeConvert))
-    #print(dateTimeConvert)
+    #Format -> d/m/Y H:M:S
     return dateTimeConvert
 
 def strToTime(date):
+    """
+    Convierte un dato tipo STR a un dato tipo datetime.datetime
+    """
     zone='America/Bogota'
     dateTimeString = datetime.strptime(date, '%d/%m/%Y %H:%M:%S')
     dateTimeString = dateTimeString.astimezone(pytz.timezone(zone))
-    return dateTimeString; 
+    return dateTimeString;
 
 def main():
     now = currentTime()
