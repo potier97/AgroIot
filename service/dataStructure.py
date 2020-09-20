@@ -12,7 +12,7 @@ def struct( date, getDate, pathAt, pathAh, pathEt, pathEh, pathL,
             airHum5, airHumSensation5, airTemp5, airTempSensation5, earthHum5, earthTemp5, light5):
 
     data={
-      "getDateTimeTelemetry" : getDate, #dateTelemetry
+      "dateTimeCaptureTelemetry" : getDate, #dateTelemetry
       "currentDate": date,  #dateTransfer
       "nodeId0": {
         "airHum":  airHum0,

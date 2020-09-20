@@ -82,12 +82,14 @@ def main():
     #Count time
     import time
 
+
     #Start to count time
     print("Iniciando a contar el tiempo")
     start = time.time()
-
+    """
     #Validate App
     validateAccount()
+
 
     #Get dateTime now
     currentDatetime = files.currentTime()
@@ -129,10 +131,10 @@ def main():
     #Add to logs.txt
     newMessage = 'New data added on:'
     nowConvert = files.dateTimeConvert(currentDatetime)
-    files.manageFiles(message=newMessage ,time=nowConvert)
-
-    #validateAccount()
-    #deleteData()
+    files.manageFiles(message=newMessage ,time=nowConvert, status=True)
+    """
+    validateAccount()
+    deleteData()
 
 
     #Stop to cout time

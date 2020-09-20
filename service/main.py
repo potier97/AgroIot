@@ -7,7 +7,6 @@ import files
 import firebase
 import heatMap
 import calculation
-import time
 import pandas as pd
 pd.options.display.float_format = '{:.2f}'.format
 
@@ -19,8 +18,8 @@ def simpleJob():
     try:
 
         #Start to count time
-        print("Iniciando a contar el tiempo")
-        start = time.time()
+        #print("Iniciando a contar el tiempo")
+        #start = time.time()
 
         for i in range(10):
             newBlink.ledOn(0.25)
@@ -29,7 +28,7 @@ def simpleJob():
         #App Validate
         #firebase.validateAccount()
 
-        fileName="/home/pi/iot/store/weatherDatas.csv"
+        fileName="/home/pi/iot/store/weatherData.csv"
         df = pd.read_csv(fileName)
 
         #Get dateTime Now
@@ -37,14 +36,19 @@ def simpleJob():
         #Convert date type to str
         currentDatetimeStr = files.dateTimeConvert(currentDatetime)
 
+        #Status for new data for send to cloud
+        newDataStatus = False
+
 
         for id, row in df.iterrows():
             if row.statusCloud == False:
 
 
                 #View row id
-                print(id)
+                #print(id)
 
+                #Validate New data
+                newDataStatus = True
 
                 #Get data by node
                 nodeOne   = [row.airHumOne, row.airHumSensationOne, row.airTempOne, row.airTempSensationOne, row.earthHumOne, row.earthTempOne, row.lightOne]
@@ -57,6 +61,8 @@ def simpleJob():
                 #Get captured data and convert str datetime to datetime.datetime
                 telemetryTime = files.strToTime(row.dateCaptured)
 
+                #Convert captured data to str
+                telemetryTimeStr =  files.dateTimeConvert(telemetryTime)
 
                 #get data by var
                 #airHum0, airHumSensation0, airTemp0, airTempSensation0, earthHum0, earthTemp0, light0,
@@ -68,11 +74,11 @@ def simpleJob():
 
 
                 #Charts
-                fileImagePath_AirTemp,   fileName_AirTemp   = heatMap.myPlot(0, airTemp,   currentDatetimeStr)
-                fileImagePath_AirHum,    fileName_AirHum    = heatMap.myPlot(1, airHum,    currentDatetimeStr)
-                fileImagePath_EarthTemp, fileName_EarthTemp = heatMap.myPlot(2, earthTemp, currentDatetimeStr)
-                fileImagePath_EarthHum,  fileName_EarthHum  = heatMap.myPlot(3, earthHum,  currentDatetimeStr)
-                fileImagePath_Light,     fileName_Light     = heatMap.myPlot(4, light,     currentDatetimeStr)
+                fileImagePath_AirTemp,   fileName_AirTemp   = heatMap.myPlot(0, airTemp,   telemetryTimeStr)
+                fileImagePath_AirHum,    fileName_AirHum    = heatMap.myPlot(1, airHum,    telemetryTimeStr)
+                fileImagePath_EarthTemp, fileName_EarthTemp = heatMap.myPlot(2, earthTemp, telemetryTimeStr)
+                fileImagePath_EarthHum,  fileName_EarthHum  = heatMap.myPlot(3, earthHum,  telemetryTimeStr)
+                fileImagePath_Light,     fileName_Light     = heatMap.myPlot(4, light,     telemetryTimeStr)
 
 
                 #Upload image to Storage
@@ -93,15 +99,16 @@ def simpleJob():
                 #print(nodes)
 
                 #Send dato to Firestore
-                #firebase.insertData(nodes)
+                firebase.insertData(nodes)
 
                 #Update data on csv
-                df.at[id,'dateCaptured'] = files.dateTimeConvert(telemetryTime)
+                df.at[id,'dateCaptured'] = telemetryTimeStr
                 df.at[id,'statusCloud'] = True
                 df.at[id,'timeSent'] = currentDatetimeStr
+                #time.sleep(1)
 
         #Add logs.txt
-        files.manageFiles(message='New data added on:', time=currentDatetimeStr)
+        files.manageFiles(message='New data added on:', time=currentDatetimeStr, status=newDataStatus)
 
         #Rewrite file with process
         df.to_csv(fileName, index=False, float_format='%.2f')
@@ -113,10 +120,9 @@ def simpleJob():
 
 
         #Stop to cout time
-        end = time.time()
+        #end = time.time()
         #Results
-        print("Tiempo total para ejecutar el script: {:.3f} Segundos".format(end - start))
-
+        #print("Tiempo total para ejecutar el script: {:.3f} Segundos".format(end - start))
 
     except:
         newBlink.ledOff()
@@ -124,11 +130,11 @@ def simpleJob():
 
 
 def main():
-    #schedule.every().hour.at(":01").do(simpleJob)
-    #while True:
-    #    schedule.run_pending()
-    #    time.sleep(1)
-    simpleJob()
+    schedule.every().hour.at(":01").do(simpleJob)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+    #simpleJob()
 
 
 if __name__ == "__main__":
