@@ -70,3 +70,32 @@ New data added on: 14/09/2020 13:27:45  --  Status: Data Send
 New data added on: 14/09/2020 13:45:41  --  Status: Data Send 
 New data added on: 14/09/2020 15:30:51  --  Status: Data Send 
 New data added on: 14/09/2020 16:59:36  --  Status: Data Send 
+New data added on: 18/09/2020 04:35:01  --  Status: Data Send 
+New data added on: 19/09/2020 03:17:30  --  Status: Data Send 
+New data added on: 19/09/2020 04:09:47  --  Status: Data Send 
+New data added on: 19/09/2020 04:15:14  --  Status: Data Send 
+New data added on: 19/09/2020 18:41:40  --  Status: Data Send 
+New data added on: 19/09/2020 19:01:22  --  Status: Data Send 
+New data added on: 19/09/2020 19:33:26  --  Status: Data Send 
+New data added on: 19/09/2020 20:04:18  --  Status: Data Send 
+New data added on: 19/09/2020 20:07:19  --  Status: Data Send 
+New data added on: 19/09/2020 20:36:50  --  Status: Data Send 
+New data added on: 19/09/2020 20:59:55  --  Status: Data Send 
+New data added on: 19/09/2020 21:10:31  --  Status: Data Send 
+New data added on: 19/09/2020 21:11:46  --  Status: Data Send 
+New data added on: 19/09/2020 21:20:11  --  Status: Data Send 
+New data added on: 19/09/2020 23:49:21  --  Status: Data Send 
+New data added on: 19/09/2020 23:51:33  --  Status: Data Send 
+New data added on: 20/09/2020 00:07:31  --  Status: Data Send 
+New data added on: 20/09/2020 00:11:27  --  Status: Data Send 
+New data added on: 20/09/2020 00:51:02  --  Status: Data Send 
+New data added on: 20/09/2020 01:05:43  
+New data added on: 20/09/2020 01:11:24  
+New data added on: 20/09/2020 01:14:51  
+New data added on: 20/09/2020 01:15:35  
+New data added on: 20/09/2020 01:19:50  
+New data added on: 20/09/2020 02:00:15  
+New data added on: 20/09/2020 02:19:19  
+New data added on: 20/09/2020 02:19:52  
+New data added on: 20/09/2020 02:23:09  
+New data added on: 20/09/2020 03:06:50  

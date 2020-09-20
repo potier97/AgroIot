@@ -103,7 +103,7 @@ void writeCSV(){
 	// file pointer
         fstream fout;
         // opens an existing csv file or creates a new file.
-        fout.open("/home/pi/iot/rf24/weatherData.csv", ios::out | ios::app);
+        fout.open("/home/pi/iot/store/weatherData.csv", ios::out | ios::app);
 
 	//Get Date
 	string now = getDate();
@@ -168,7 +168,7 @@ void insertDB(){
     	sqlite3_stmt *stmt;
 	//Validation Conecction
         int exit = 0;
-        exit = sqlite3_open("/home/pi/iot/rf24/sensordata.db", &DB);
+        exit = sqlite3_open("/home/pi/iot/store/sensordata.db", &DB);
 
         if (exit) {
                 printf("No Abrio");

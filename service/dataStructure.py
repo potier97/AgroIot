@@ -2,7 +2,8 @@
 import json
 
 
-def struct( date, getDate,
+def struct( date, getDate, pathAt, pathAh, pathEt, pathEh, pathL,
+            urlAt, urlAh, urlEt, urlEh, urlL,
             airHum0, airHumSensation0, airTemp0, airTempSensation0, earthHum0, earthTemp0, light0,
             airHum1, airHumSensation1, airTemp1, airTempSensation1, earthHum1, earthTemp1, light1,
             airHum2, airHumSensation2, airTemp2, airTempSensation2, earthHum2, earthTemp2, light2,
@@ -68,7 +69,18 @@ def struct( date, getDate,
         "light":  light5,
       },
       "aditional":{
-
+        "path-AT":  pathAt,
+        "path-AH":  pathAh,
+        "path-ET":  pathEt,
+        "path-EH":  pathEh,
+        "path-L":   pathL,
+      },
+      "updateImages":{
+        "url-AT": urlAt,
+        "url-AH": urlAh,
+        "url-ET": urlEt,
+        "url-EH": urlEh,
+        "url-L":  urlL,
       }
     }
     return data
@@ -78,7 +90,18 @@ def struct( date, getDate,
 
 def main():
     import random
-    z = struct("19/08/2020 23:11:01", "19/08/2020 23:11:01", round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
+    z = struct("19/08/2020 23:11:01", "19/08/2020 23:11:01", 
+              "/home/pi/iot/store/charts/at/Temperatura-Aire-19-09-2020_18-41-41.png",
+              "/home/pi/iot/store/charts/at/Humedad-Aire-19-09-2020_18-41-41.png",
+              "/home/pi/iot/store/charts/at/Temperatura-Tierra-19-09-2020_18-41-41.png",
+              "/home/pi/iot/store/charts/at/Humedad-Tierra-19-09-2020_18-41-41.png",
+              "/home/pi/iot/store/charts/at/Luz-19-09-2020_18-41-41.png",
+              "https://storage.googleapis.com/telemetryiot.appspot.com/TemperaturaAire.png",
+              "https://storage.googleapis.com/telemetryiot.appspot.com/HumedadAire.png",
+              "https://storage.googleapis.com/telemetryiot.appspot.com/TemperaturaTierra.png",
+              "https://storage.googleapis.com/telemetryiot.appspot.com/HumedadTierra.png",
+              "https://storage.googleapis.com/telemetryiot.appspot.com/Luz.png",
+              round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
               round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
               round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),
               round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2), round(random.uniform(0.00, 90.00), 2),

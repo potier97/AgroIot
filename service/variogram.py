@@ -1,15 +1,19 @@
 #!/usr/bin/python3
 import numpy as np
+import matplotlib as mpl
+mpl.use('Agg')
 import gstools as gs
 from matplotlib import pyplot as plt
 plt.style.use('ggplot')
- 
+
+
+
 def main():
     data = np.array([
         [0.1, 5.1],   #Nodo 5
         [0.1, 1.4],   #Nodo 2
         [3.0, 2.3],   #Nodo 3
-        [5.1, 4.1],   #Nodo 4
+        [5.1, 5.1],   #Nodo 4
         [5.8, 2.0],   #Nodo 1
         ])
 
@@ -28,8 +32,10 @@ def main():
     # output
     ax = fit_model.plot(x_max=max(bin_center))
     ax.plot(bin_center, gamma)
-    plt.show()
+    #plt.show()
+    plt.close()
     print(fit_model)
 
 if __name__ == "__main__":
     main()
+

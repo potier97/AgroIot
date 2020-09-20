@@ -10,14 +10,6 @@ def average(dataOne=0, dataTwo=0, dataThree=0, dataFour=0, dataFive=0):
     return  round(sum, 2)
 
 
-#def listAverage(dataList):
-#    sum = 0
-#    for numberList in dataList:
-#        sum += numberList
-#    sum = sum/len(dataList)
-#    return  round(sum, 2)
-
-
 def averageVar(data):
     averageNode = []
     #algo = [[ y[x] for y in data.values()] for x in range(7)]

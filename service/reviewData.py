@@ -15,7 +15,7 @@ pd.options.display.float_format = '{:.2f}'.format
 
 
 def main():
-    file = "/home/pi/iot/rf24/weatherDatas.csv"
+    file = "/home/pi/iot/store/weatherDatas.csv"
     firebase.validateAccount()
     df = pd.read_csv(file)
 
@@ -50,7 +50,7 @@ def main():
     #Add to logs.txt
     newMessage = 'New data added on:'
     nowConvert = files.dateTimeConvert(files.currentTime())
-    files.manageFiles(message=newMessage ,time=nowConvert, status=True)
+    files.manageFiles(message=newMessage ,time=nowConvert)
 
     df.to_csv(file, index=False, float_format='%.2f')
 

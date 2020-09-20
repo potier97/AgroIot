@@ -2,15 +2,11 @@
 from datetime import datetime
 import pytz
 
-def manageFiles(logsFile="logs.txt", message='New data added on:', time='No time', status=False):
-    if status:
-        statusData = 'Data Send'
-    else:
-        statusData = 'No Data Send'
+def manageFiles(logsFile="/home/pi/iot/store/logs.txt", message='New data added on:', time='No time'):
     with open(logsFile, 'a') as file:
         #if '00:01' in time:
         #    file.write("New data day  --  \n")
-        file.write("{} {}  --  Status: {} \n" .format(message, time, statusData))
+        file.write("{} {}  \n" .format(message, time))
 
 
 def currentTime():
