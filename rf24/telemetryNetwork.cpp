@@ -349,7 +349,7 @@ int main(int argc, char** argv)
                        	newFromThree = false;
                        	newFromFour  = false;
                        	newFromFive  = false;
-			//writeCSV();
+			writeCSV();
 			//insertDB();
 			delay(2000);
                  }
