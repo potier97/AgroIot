@@ -1,6 +1,6 @@
 <h1 align="center">
   <img src="logo.png"/><br/>
-  <a href="https://telemetry-iot.herokuapp.com/">TelemetryIot</a>
+  <a href="https://telemetry-iot.herokuapp.com/">AgroIot</a>
 </h1>
  
  sdcsddscscscsdhsdhijsdjhsdhshjsdhsdhjhsd
