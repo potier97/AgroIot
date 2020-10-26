@@ -39,15 +39,15 @@ Las dos últimas instrucciones corresponden a permisos de ejecución en el siste
 
 Luego de  tener el archivo  declarado se procede a validar el servicio.}
 ``` sh
-sudo cp telemetryData.service /etc/systemd/system/telemetryData.service
+    $ sudo cp telemetryData.service /etc/systemd/system/telemetryData.service
 
-sudo systemctl start telemetryData.service
+    $ sudo systemctl start telemetryData.service
 
-sudo systemctl stop telemetryData.service
+    $ sudo systemctl stop telemetryData.service
 
-sudo systemctl enable telemetryData.service
+    $ sudo systemctl enable telemetryData.service
 
-sudo systemctl status telemetryData.service
+    $ sudo systemctl status telemetryData.service
 ```
 
  - sudo cp telemetryData.service /etc/systemd/system/telemetryData.service: Copia el archivo creado y lo coloca en el directorio etc/systemd/system en donde se ejecutan todos los servicios y/o tareas automatizadas
