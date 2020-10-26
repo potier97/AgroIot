@@ -142,9 +142,9 @@ El funcionamiento básico de la red de telemetría consiste en la ejecución rep
 
 
 Así mismo, se explica la lógica de programación de cada servicio y nodo del proyecto
-1  [Scripts de Arduino - Thing](https://github.com/potier97/AgroIot/tree/master/arduino)
-2  [Servicio - Comunicación con la red de telemetría](https://github.com/potier97/AgroIot/tree/master/rf24)
-3  [Servicio - Envío de información a la nube](https://github.com/potier97/AgroIot/tree/master/service)
+1. [Scripts de Arduino - Thing](https://github.com/potier97/AgroIot/tree/master/arduino)
+2. [Servicio - Comunicación con la red de telemetría](https://github.com/potier97/AgroIot/tree/master/rf24)
+3. [Servicio - Envío de información a la nube](https://github.com/potier97/AgroIot/tree/master/service)
  
 
 ## Protocolo
