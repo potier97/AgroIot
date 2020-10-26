@@ -32,7 +32,7 @@ Se definen los pines que van a hacer utilizados para conectar los periféricos d
  -  addressSense: Dirección del sensor DS18B20 al que está conectado el microcontrolador para pedir datos de la temperatura
  
 
-## Inizialidando modulos 
+## Inicializar Módulos 
 
 ```ino
     Thing thing(LED_STATUS, DHT_PIN, TEMP_PIN, CE_PIN, CSN_PIN, ID_NODE);
