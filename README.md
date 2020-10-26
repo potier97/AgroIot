@@ -18,7 +18,7 @@ En este repositorio se explica cómo se estructura la red de Telemetría, los se
 
 La red de telemetría se encuentra ubicado en un Invernadero, del municipio de la Calera, Cundinamarca. Cuenta  con cinco nodos y un Gateway, estos se componen principalmente de:
 
-##### Nodos
+#### Nodos
 1. Microcontrolador [ESP8266](https://www.espressif.com/en/products/socs/esp8266) de Espressif
 2. Transceptor [NRF24L01+](https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf) de Nordic Semiconductor
 3. Sensor de Temperatura y Humedad [DHT21](https://mikroshop.ch/pdf/DHT21.pdf)  (Temperatura Aire y Humedad Aire)
@@ -26,7 +26,7 @@ La red de telemetría se encuentra ubicado en un Invernadero, del municipio de l
 5. Sensor DE Humedad del suelo [YL-69](https://saber.patagoniatec.com/2014/11/sensor-de-humedad-de-suelo-tierra-soil-moisture-arduino-yl-69-ptec/)   (Humedad Tierra)
 6. Sensor de Luz [BH1750](https://www.mouser.com/datasheet/2/348/bh1750fvi-e-186247.pdf)  (Luz Ambiente)
 
-##### Gateway
+#### Gateway
 1. Raspberry pi 3
 2. Transceptor [NRF24L01+](https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf) de Nordic Semiconductor
  
@@ -75,7 +75,7 @@ Como se mencionó al principio, los sensores implementados en cada nodo son:
 3. Sensor DE Humedad del suelo [YL69](https://saber.patagoniatec.com/2014/11/sensor-de-humedad-de-suelo-tierra-soil-moisture-arduino-yl-69-ptec/)   (Humedad Tierra)
 4. Sensor de Luz [BH1750](https://www.mouser.com/datasheet/2/348/bh1750fvi-e-186247.pdf)  (Luz Ambiente)
 
-##### DHT21
+#### DHT21
 Este sensor, también es conocido como: AM2301, y cuenta con las siguientes características:
 
 | Característica | Valor |
@@ -90,7 +90,7 @@ La biblioteca de DHT21 para ser programado en Arduino, se encuentra en:  [https:
 
 
 
-##### DS18B20
+#### DS18B20
 Este sensor, de tipo sonda antifluido, cuenta con las siguientes características:
 
 | Característica | Valor |
@@ -104,7 +104,7 @@ Este sensor, de tipo sonda antifluido, cuenta con las siguientes característica
 
 La biblioteca de DS18B20 para ser programado en Arduino, se encuentra en: [https://github.com/matmunk/DS18B20](https://github.com/matmunk/DS18B20)
 
-##### YL-69
+#### YL-69
 Este sensor es análogo para la medición de la humedad, por lo tanto, es necesaria su caracterización, para ello puede revisar el siguiente [link](https://www.youtube.com/watch?v=iWV42viyLtQ&ab_channel=Electgpl). Este sensor cuenta con las siguientes características:
 
 | Característica | Valor |
@@ -117,7 +117,7 @@ Este sensor es análogo para la medición de la humedad, por lo tanto, es necesa
  
 Este módulo no necesita de una biblioteca para ser utilizado
 
-##### BH1750
+#### BH1750
 Cuenta con las siguientes características:
 
 | Característica | Valor |
