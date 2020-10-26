@@ -36,7 +36,7 @@ La red de telemetría se encuentra ubicado en un Invernadero, del municipio de l
 La dimensión del invernadero es de 6m x 5.6m, así que la distribución y ubicación de los nodos se realiza de acuerdo con la siguiente imagen:
 
 <h4 align="center">
-  <img src="ubicacion.png"/><br/>
+  <img src="ubicacion.jpg"/><br/>
   <a >Ubicación de Nodos</a>
 </h4>
 
@@ -53,14 +53,14 @@ Las coordenadas de cada nodo en el invernadero son:
 El Gateway no se encuentra ubicado en el invernado, pero está ubicado aproximadamente 12 metros, respecto al invernadero.
 
 <h4 align="center">
-  <img src="Gateway.png"/><br/>
+  <img src="Gateway.jpeg"/><br/>
   <a >Gateway</a>
 </h4>
 
 Los nodos funcionan mediante la alimentación de baterías y/o de la red eléctrica. El despliegue de estos se realiza de acuerdo a las coordenadas dadas. La estructura de cada nodo es a partir de PVC y cajas IP 55, tienen una altura de aproximadamente 1.1m 
 
 <h4 align="center">
-  <img src="nodo.png"/><br/>
+  <img src="nodo.jpg"/><br/>
   <a >Instalación de Nodos</a>
 </h4>
 
