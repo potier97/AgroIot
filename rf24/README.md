@@ -5,7 +5,7 @@ El objetivo de este servicio es el de recibir contantemente los paquetes de dato
 
 ## Servicio - RF24
 
-Antes de esto, se indica la manera de crear un servicio que se ejecute constantemente en el sistema operativo de la Raspberry Py usando Systemd, así que es necesario crear un archivo llamada `telemetryData.service`, lo puede crear y editar con las siguientes instrucciones en la línea de comandos (SHELL): 
+Antes de esto, se indica la manera de crear un servicio que se ejecute constantemente en el sistema operativo de la Raspberry Pi usando Systemd, así que es necesario crear un archivo llamada `telemetryData.service`, lo puede crear y editar con las siguientes instrucciones en la línea de comandos (SHELL): 
 
 ``` sh
     $ nano telemetryData.service
