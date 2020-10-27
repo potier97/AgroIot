@@ -31,7 +31,7 @@ La red de telemetría se encuentra ubicado en un Invernadero, del municipio de l
 2. Transceptor [NRF24L01+](https://www.sparkfun.com/datasheets/Components/SMD/nRF24L01Pluss_Preliminary_Product_Specification_v1_0.pdf) de Nordic Semiconductor
  
 
-##Estructura
+## Estructura
 
 La dimensión del invernadero es de 6m x 5.6m, así que la distribución y ubicación de los nodos se realiza de acuerdo con la siguiente imagen:
 
